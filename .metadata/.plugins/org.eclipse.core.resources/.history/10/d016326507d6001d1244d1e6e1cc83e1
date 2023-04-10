@@ -1,0 +1,19 @@
+package data;
+
+import java.util.Date;
+
+public class Board {
+	int boardId;
+	String userId;
+	String boardPass;
+	String title;
+	String content;
+	String writer;
+	Date writed;
+	int views;
+	int likes;
+	
+	
+	
+
+}

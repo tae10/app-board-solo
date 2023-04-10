@@ -1,0 +1,11 @@
+package controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/create")
+public class CreateController extends HttpServlet{
+	
+	
+
+}

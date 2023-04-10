@@ -1,0 +1,40 @@
+package controller;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import data.User;
+
+@WebServlet("/board")
+public class BoardViewController extends HttpServlet {
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		SqlSessionFactory factory = (SqlSessionFactory) req.getServletContext().getAttribute("sqlSessionFactory");
+		SqlSession sqlSession = factory.openSession();
+		User logonUser = (User) req.getSession().getAttribute("logonUser");
+
+		int p;
+		if (req.getParameter("page") == null) {
+			p = 1;
+		} else {
+			p = Integer.parseInt(req.getParameter("page"));
+		}
+		
+		Map<String,Object> map =new HashMap<>();
+		
+		
+
+	}
+
+}

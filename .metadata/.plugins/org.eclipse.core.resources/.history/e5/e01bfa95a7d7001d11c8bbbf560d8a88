@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resource/css/style2.css?${millis }" />
+</head>
+<body>
+	<div>
+		<h1 align="center">게시판</h1>
+		<div align="left">
+			<a href="/create">글쓰기</a>
+		</div>
+		<div align="center">
+			<a href="/board?sort=writed">등록순</a> <a href="/board?sort=views">조회순</a>
+			<a href="/board?sort=likes">추천순</a>
+		</div>
+		<br/>
+		</div>
+			<table>
+				<tr class="page-title">
+					<th>번호</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>작성일</th>
+					<th>조회</th>
+					<th>추천</th>
+				</tr>
+				<c:forEach items="${list }" var="li">
+					<tr>
+						<td style="text-align: center;">${li.boardId }</td>
+						<td style="text-align: center;"><a
+							href="/detail?boardId=${li.boardId }">${li.title } </a></td>
+						<td style="text-align: center;" width="15%">${li.writer }</td>
+						<td style="text-align: center;" width="15%">${li.writed }</td>
+						<td style="text-align: center;" width="10%">${li.views }</td>
+						<td style="text-align: center;" width="10%">${li.likes }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<div style="padding-top: 22px; text-align: center;">
+				<c:set var="currentPage"
+					value="${empty param.page ? 1: param.page }" />
+				<c:if test="${existPrev }">
+					<a href="/board?page=${start -1 }">◁</a>
+				</c:if>
+				<c:forEach begin="${start }" end="${last }" var="p">
+					<c:choose>
+						<c:when test="${p eq currentPage }">
+							<b style="color: green">${p }</b>
+						</c:when>
+						<c:otherwise>
+							<a href="/board?page=${p }">${p }</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${existNext }">
+					<a href="/board?page=${last + 1 }">▷</a>
+				</c:if>
+			</div>
+</body>
+</html>

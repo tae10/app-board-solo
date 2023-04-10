@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body >
+ <div>
+        <form action="login-task">
+            <input type="text" placeholder="아이디" class="in">
+            <input type="password" placeholder="비밀번호" class="in">
+            <input type="submit" id="btn" value="로그인"><br>
+        </form>
+    </div>
+   <c:if test="${param.error eq 'different' }">
+     <span style="color: red"> 입력이 잘못되었습니다   </span> 
+   </c:if>
+    <c:if test="${param.error eq 'null' }">
+     <span style="color: red">  DB에 없습니다   </span> 
+   </c:if>
+</body>
+</html>
