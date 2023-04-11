@@ -25,9 +25,9 @@ public class checkTaskController extends HttpServlet {
 		String pass = req.getParameter("pass");
 		if (pass.equals(board.getBoardPass())) {
 			if (caseCheck.equals("1")) {
-				resp.sendRedirect("/board/modify?boardId="+boardId);
+				resp.sendRedirect("/modify?boardId="+boardId);
 			}else {
-				resp.sendRedirect("/board/delete?boardId="+boardId);
+				resp.sendRedirect("/delete?boardId="+boardId);
 			}
 		}else {
 			resp.sendRedirect("/board/check?cause=error&boardId="+boardId+"&caseCheck="+caseCheck);

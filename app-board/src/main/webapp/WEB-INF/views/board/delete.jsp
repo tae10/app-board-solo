@@ -7,10 +7,10 @@
 <title>BOARD</title>
 </head>
 <body>
-	<div class="root">
+	<div style="text-align: center;">
 		<h1>글을 삭제하시겠습니까?</h1>
-		<a href="/board/delete-task?boardId=${boardId }"><button>예</button></a> / 
-		<a href="/board/detail?boardId=${boardId }"><button>아니요</button></a>
+		<a href="/delete-task?boardId=${boardId }"><button>예</button></a> / 
+		<a href="/detail?boardId=${boardId }"><button>아니요</button></a>
 	</div>
 </body>
 </html>

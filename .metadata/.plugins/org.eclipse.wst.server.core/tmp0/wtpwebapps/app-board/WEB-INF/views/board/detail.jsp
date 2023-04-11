@@ -6,30 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>BOARD</title>
-<link rel="stylesheet" href="/resource/css/board.css?${millis }">
+<link rel="stylesheet" href="/resource/css/moim.css?${millis }">
 </head>
 <body class="root">
-	<div style="border-bottom: solid 1px black">
+	<div>
 		<h1>${board.title }</h1>
 		<c:choose>
 			<c:when test="${!empty board.boardPass }">
 				<div>
-					<a href="/board/check?boardId=${board.boardId }&caseCheck=1">수정</a> |
+					<a href="/board/check?boardId=${board.boardId }&caseCheck=1">수정</a> &
 					<a href="/board/check?boardId=${board.boardId }&caseCheck=2">삭제</a>
 				</div>				
 			</c:when>
 			<c:when test="${empty board.boardPass }">
 				<c:if test="${logonUser.id eq board.userId }">
-					<div>
-						<a href="/modify?boardId=${board.boardId }">수정</a> |
+					<div class="moim-brief-card ">
+						<a href="/modify?boardId=${board.boardId }">수정</a> &
 						<a href="/delete?boardId=${board.boardId }">삭제</a>
 					</div>		
 				</c:if>
 			</c:when>
 		</c:choose>
-		조회수${board.views } | 추천${board.likes }
+		조회수${board.views } & 추천${board.likes }
 		<br/>
-		${board.writer } | ${board.writed }
+		${board.writer } & ${board.writed }
 		<div>
 			<c:if test="${sessionScope.logon }">
 				<c:if test="${status ne '1' }">
@@ -38,7 +38,7 @@
 			</c:if>
 		</div>
 	</div>
-	<div>
+	<div class="moim-detail-card">
 		${board.content }
 	</div>
 </body>

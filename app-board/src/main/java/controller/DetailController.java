@@ -22,27 +22,25 @@ public class DetailController extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
 		SqlSessionFactory factory = (SqlSessionFactory) req.getServletContext().getAttribute("sqlSessionFactory");
 		SqlSession sqlSession = factory.openSession();
 		User logonUser = (User) req.getSession().getAttribute("logonUser");
-		
 		String boardId = req.getParameter("boardId");
-		Board board = sqlSession.selectOne("boards.findByBoardId",boardId);
+		Board board = sqlSession.selectOne("boards.findByBoardId", boardId);
 		req.setAttribute("board", board);
-		sqlSession.update("boards.updateViews",boardId);
-		
-		Map<String,Object> map =new HashMap<>();
-		map.put("userId", logonUser.getId());
-		map.put("boardId", boardId);
-		Recommend recommend = sqlSession.selectOne("recommends.findById", map);
-		if (recommend != null) {
-			req.setAttribute("status", recommend.getStatus());			
+		sqlSession.update("boards.updateViews", boardId);
+		if (logonUser != null) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("userId", logonUser.getId());
+			map.put("boardId", boardId);
+			Recommend recommend = sqlSession.selectOne("recommends.findById", map);
+
+			if (recommend != null) {
+				req.setAttribute("status", recommend.getStatus());
+			}
 		}
-		
 		sqlSession.commit();
 		sqlSession.close();
-		
 		req.getRequestDispatcher("/WEB-INF/views/board/detail.jsp").forward(req, resp);
 		
 	}

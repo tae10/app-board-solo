@@ -1,7 +1,5 @@
 INDEX VERSION 1.131
-C:\Users\기태의 하루\Desktop\app-board(test)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2817764169.index
+C:\Users\기태의 하루\Desktop\GIt\app-board-solo\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2048394554.index
 \app-board\src\main\java
-C:\Users\기태의 하루\Desktop\app-board(test)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4113599544.index
-\app-board\src\main\java
-C:\Users\기태의 하루\Desktop\app-board(test)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2048394554.index
+C:\Users\기태의 하루\Desktop\GIt\app-board-solo\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4113599544.index
 \app-board\src\main\java
